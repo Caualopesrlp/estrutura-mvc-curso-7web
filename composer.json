@@ -1,0 +1,11 @@
+{
+    "name": "caua.lopes/estruturamvcnophp",
+    "description": "MVC Structure",
+    "authors": [
+        {
+            "name": "caualopesrlp",
+            "email": "caua.lopes@salvador.ba.gov.br"
+        }
+    ],
+    "require": {}
+}
