@@ -1,18 +1,18 @@
 <?php
+namespace App\Core;
 
-    class Controller{
-        protected function view($view, $viewData = []){
+class Controller{
+    protected function view($view, $viewData = []){
 
-            extract($viewData);
+        extract($viewData);
 
-            $viewFile = __DIR__ . '/../views/' . $view . '.php';
+        $viewFile = __DIR__ . '/../views/' . $view . '.php';
 
-            if(!file_exists($viewFile)){
-                throw new Exception("View file not found: ");
-            }
-            require_once $viewFile;
-            return;
+        if(!file_exists($viewFile)){
+            throw new \Exception("View file not found: " . $viewFile);
         }
+        require_once $viewFile;
+        return;
     }
-
- ?>
+}
+?>

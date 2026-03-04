@@ -1,8 +1,6 @@
 <?php
-namespace app\core;
+namespace App\Core;
 
-use Controller;
-use ErrorController;
 
 class Router {
 
@@ -11,14 +9,12 @@ class Router {
         $url = trim($url, '/');
         $parts = $url ? explode('/', $url) : [];
 
-        $controllerName = $parts[0] ?? 'Home';
-        $controllerName = ucfirst($controllerName) . 'Controller';
-        $controllerFile = __DIR__ . "/../controllers/$controllerName.php";
+        $controllerName = ucfirst($parts[0] ?? 'Home') . 'Controller';
+        $controllerClass = 'App\\Controllers\\' . $controllerName;
                                                                                                                                
-        if (file_exists($controllerFile)) {
+        if (class_exists($controllerClass)) {
 
-            require_once($controllerFile);
-            $controller = new $controllerName();
+            $controller = new $controllerClass();
 
             $actionName = $parts[1] ?? 'index';
 
@@ -29,16 +25,14 @@ class Router {
 
             } else {
 
-                require_once(__DIR__ . "/../controllers/errors/ErrorController.php");
-                $error = new ErrorController();
+                $error = new \App\Controllers\Errors\ErrorController();
                 $error->NotFound();
 
             }
 
         } else {
 
-            require_once(__DIR__ . "/../controllers/errors/ErrorController.php");
-            $error = new ErrorController();
+            $error = new \App\Controllers\Errors\ErrorController();
             $error->NotFound();
 
         }

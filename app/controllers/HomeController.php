@@ -1,19 +1,19 @@
-<?php 
-    require_once __DIR__ . '/../core/Controller.php';
-    require_once __DIR__ . '/../models/Usuario.php';
+<?php
+namespace App\Controllers;
 
-    class HomeController extends Controller {
-        public function index(){
-       
-            $usuario = new Usuario();
-            $data = $usuario->getUserData();
+use App\Core\Controller;
+use App\Models\Usuario;
 
-            $this->view('home/index', $data);
-        }
+class HomeController extends Controller {
+    public function index(){
+        $usuario = new Usuario();
+        $data = $usuario->getUserData();
 
-        public function contact (){
-            $this->view('home/contact');
-        }
+        $this->view('home/index', $data);
     }
-       
+
+    public function contact(){
+        $this->view('home/contact');
+    }
+}
 ?>
