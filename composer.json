@@ -1,11 +1,17 @@
 {
     "name": "caua.lopes/estruturamvcnophp",
-    "description": "MVC Structure",
     "authors": [
         {
             "name": "caualopesrlp",
             "email": "caua.lopes@salvador.ba.gov.br"
         }
     ],
+
+    "autoload":{
+        "psr-4":{
+            "App\\": "app/"
+        }
+    },
+
     "require": {}
 }

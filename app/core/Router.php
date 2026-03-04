@@ -29,7 +29,7 @@ class Router {
 
             } else {
 
-                require_once("../app/controllers/ErrorController.php");
+                require_once(__DIR__ . "/../controllers/errors/ErrorController.php");
                 $error = new ErrorController();
                 $error->NotFound();
 
@@ -37,9 +37,9 @@ class Router {
 
         } else {
 
-            require_once("../app/controllers/ErrorController.php");
+            require_once(__DIR__ . "/../controllers/errors/ErrorController.php");
             $error = new ErrorController();
-            $error->index();
+            $error->NotFound();
 
         }
     }
