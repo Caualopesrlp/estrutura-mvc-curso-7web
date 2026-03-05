@@ -2,7 +2,6 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
-use App\Core\Database;
 use App\Models\Usuario;
 
 class HomeController extends Controller {
@@ -10,16 +9,15 @@ class HomeController extends Controller {
         $usuario = new Usuario();
         $data = $usuario->getUserData();
 
-        $database = new Database();
-
-        $consulta = $database->query('SELECT 1+1 AS teste');
-        dd($consulta->fetch());
-
         $this->view('home/index', $data);
     }
 
-    public function contact(){
-        $this->view('home/contact');
-    }
+   public function contact(){
+
+    $usuario = new Usuario();
+    $data = $usuario->getUserData();
+
+    $this->view('home/contact', $data);
+}
 }
 ?>
